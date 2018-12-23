@@ -8,7 +8,7 @@ import './index.scss';
  * @visibleName 输入框
  */
 export default function Input({ placeholder }) {
-  return <input className="red" placeholder={placeholder} />;
+  return <input className="button" placeholder={placeholder} />;
 }
 
 Input.propTypes = {

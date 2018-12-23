@@ -1,15 +1,14 @@
-// eslint-disable-next-line
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // eslint-disable-line
 
 const isDev = process.env.NODE_ENV === 'development';
 
 module.exports = {
   title: 'Pubean Components',
-  version: 'v0.1.0',
+  version: '0.1.0',
   components: 'components/**/*.js',
   styleguideDir: 'docs',
   assetsDir: 'assets',
-  require: ['babel-polyfill'],
+  require: ['babel-polyfill', './styles/main.scss'],
   usageMode: 'expand',
   ribbon: {
     url: 'https://github.com/pubean/components',
@@ -25,10 +24,13 @@ module.exports = {
             loader: 'babel-loader',
             options: {
               presets: [
-                ['@babel/env', { loose: true, modules: false, useBuiltIns: 'usage' }],
-                ['@babel/react'],
+                ['@babel/preset-env', { loose: true, modules: false, useBuiltIns: 'usage' }],
+                ['@babel/preset-react'],
               ],
-              plugins: ['@babel/plugin-proposal-class-properties'],
+              plugins: [
+                ['@babel/plugin-proposal-decorators', { decoratorsBeforeExport: true }],
+                ['@babel/plugin-proposal-class-properties', { loose: true }],
+              ],
             },
           },
         },
