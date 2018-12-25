@@ -52,6 +52,9 @@ module.exports = {
     url: 'https://github.com/pubean/components',
     text: 'Fork me on GitHub',
   },
+  template: {
+    favicon: 'favicon.ico',
+  },
   webpackConfig: {
     module: {
       rules: [
