@@ -48,12 +48,38 @@ module.exports = {
   assetsDir: 'assets',
   require: ['babel-polyfill', './styles/main.scss'],
   usageMode: 'expand',
+  exampleMode: 'expand',
   ribbon: {
     url: 'https://github.com/pubean/components',
     text: 'Fork me on GitHub',
   },
   template: {
     favicon: 'favicon.ico',
+  },
+  theme: {
+    color: {
+      link: '#00ab6b',
+      linkHover: '#00ab6b',
+    },
+    fontFamily: {
+      base: [
+        'Chinese Quote',
+        '-apple-system',
+        'BlinkMacSystemFont',
+        'Segoe UI',
+        'PingFang SC',
+        'Hiragino Sans GB',
+        'Microsoft YaHei',
+        'Helvetica Neue',
+        'Helvetica',
+        'Arial',
+        'sans-serif',
+        'Apple Color Emoji',
+        'Segoe UI Emoji',
+        'Segoe UI Symbol',
+      ],
+      monospace: ['Dank Mono', 'Operator Mono', 'Fantasque Sans Mono', 'Fira Code', 'monospace'],
+    },
   },
   webpackConfig: {
     module: {
