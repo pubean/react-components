@@ -2,6 +2,44 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // eslint-disab
 
 const isDev = process.env.NODE_ENV === 'development';
 
+// Respect user's environment
+const presetEnv = [
+  '@babel/preset-env',
+  {
+    loose: true,
+    debug: false,
+    modules: false,
+    useBuiltIns: 'usage',
+    targets: {
+      node: 'current',
+      esmodules: false,
+    },
+  },
+];
+
+// JSX enabled
+const presetReact = [
+  '@babel/preset-react',
+  {
+    development: isDev,
+  },
+];
+
+// Living on the edge
+const plugins = [
+  ['@babel/plugin-syntax-dynamic-import'],
+  ['@babel/plugin-proposal-decorators', { decoratorsBeforeExport: true }],
+  ['@babel/plugin-proposal-class-properties'],
+  ['@babel/plugin-proposal-export-default-from'],
+  ['@babel/plugin-proposal-export-namespace-from'],
+  ['@babel/plugin-proposal-logical-assignment-operators'],
+  ['@babel/plugin-proposal-nullish-coalescing-operator'],
+  ['@babel/plugin-proposal-numeric-separator'],
+  ['@babel/plugin-proposal-optional-chaining'],
+  ['@babel/plugin-proposal-pipeline-operator', { proposal: 'minimal' }],
+  ['@babel/plugin-proposal-throw-expressions'],
+];
+
 module.exports = {
   title: 'Pubean Components',
   version: '0.1.0',
@@ -23,14 +61,8 @@ module.exports = {
           use: {
             loader: 'babel-loader',
             options: {
-              presets: [
-                ['@babel/preset-env', { loose: true, modules: false, useBuiltIns: 'usage' }],
-                ['@babel/preset-react'],
-              ],
-              plugins: [
-                ['@babel/plugin-proposal-decorators', { decoratorsBeforeExport: true }],
-                ['@babel/plugin-proposal-class-properties', { loose: true }],
-              ],
+              presets: [presetEnv, presetReact],
+              plugins,
             },
           },
         },
