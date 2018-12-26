@@ -11,7 +11,8 @@
     "build": "styleguidist build",
     "serve": "serve docs",
     "clean": "rimraf docs",
-    "test": "mocha --require @babel/register tests/setup.js"
+    "test": "mocha --require @babel/register tests/setup.js",
+    "test-all": "mocha --require @babel/register tests/setup.js components/**/__tests__/*.js"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
