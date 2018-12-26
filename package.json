@@ -35,12 +35,11 @@
     "@babel/preset-env": "7.2.3",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.0.0",
-    "@pubean/eslint-config": "0.2.9",
     "@pubean/stylelint-config": "0.7.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
+    "css-loader": "2.1.0",
     "chai": "^4.2.0",
-    "css-loader": "2.0.2",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
     "eslint": "5.11.0",
@@ -108,8 +107,7 @@
   "babel": {
     "presets": [
       "@babel/preset-env",
-      "@babel/preset-react",
-      "@babel/plugin-proposal-class-properties"
+      "@babel/preset-react"
     ]
   }
 }
