@@ -10,7 +10,8 @@
     "start": "styleguidist server",
     "build": "styleguidist build",
     "serve": "serve docs",
-    "clean": "rimraf docs"
+    "clean": "rimraf docs",
+    "test": "mocha --require @babel/register tests/setup.js"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
@@ -33,23 +34,33 @@
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/preset-env": "7.2.3",
     "@babel/preset-react": "^7.0.0",
-    "@pubean/eslint-config": "0.2.8",
+    "@babel/register": "^7.0.0",
+    "@pubean/eslint-config": "0.2.9",
     "@pubean/stylelint-config": "0.7.0",
+    "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
+    "chai": "^4.2.0",
     "css-loader": "2.0.2",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
     "eslint": "5.11.0",
     "eslint-plugin-compat": "^2.6.3",
     "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^22.1.2",
     "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-security": "^1.4.0",
     "file-loader": "3.0.1",
     "mini-css-extract-plugin": "^0.5.0",
+    "mocha": "^5.2.0",
     "node-sass": "^4.11.0",
     "prettier": "^1.15.3",
     "react-styleguidist": "^8.0.6",
     "rimraf": "^2.6.2",
     "sass-loader": "^7.1.0",
     "serve": "^10.1.1",
+    "sinon": "^7.2.2",
     "style-loader": "^0.23.1",
     "stylelint": "^9.9.0",
     "stylelint-declaration-block-no-ignored-properties": "^1.1.0",
@@ -93,5 +104,12 @@
         }
       ]
     }
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react",
+      "@babel/plugin-proposal-class-properties"
+    ]
   }
 }
