@@ -2,7 +2,6 @@
 .eslintcache
 yarn-error.log
 npm-debug.log*
-yarn.lock
 package-lock.json
 /dist
 /node_modules

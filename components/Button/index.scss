@@ -1,0 +1,86 @@
+@import '../../styles/variables/all';
+
+.pb-btn {
+  display: inline-block;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  outline: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 0 10px;
+  height: 30px;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  font-size: 12px;
+  user-select: none;
+
+  &.pb-btn-default {
+    border-color: $grey-light;
+    background-color: $white;
+    color: $grey-darkest;
+
+    &:active {
+      background-color: $grey;
+    }
+  }
+
+  &.pb-btn-primary {
+    background-color: $blue;
+    color: $white;
+
+    &:active {
+      background-color: $blue-darkest;
+    }
+  }
+
+  &.pb-btn-success {
+    background-color: $green;
+    color: $white;
+
+    &:active {
+      background-color: $green-darkest;
+    }
+  }
+
+  &.pb-btn-danger {
+    background-color: $red;
+    color: $white;
+
+    &:active {
+      background-color: $red-darkest;
+    }
+  }
+
+  &.pb-btn-warning {
+    background-color: $orange;
+    color: $white;
+
+    &:active {
+      background-color: $orange-darkest;
+    }
+  }
+
+  // TODO: 使用 SCSS 循环语法
+  @each $color in $colors {
+    &.pb-btn-#{$color} {
+      background-color: #{$color};
+      color: $white;
+
+      &:active {
+        background-color: #{$color}-darkest;
+      }
+    }
+  }
+
+  &.pb-btn-block {
+    display: block;
+  }
+
+  // 临时解决例子里布局的问题
+  & + .pb-btn {
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+}

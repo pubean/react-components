@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
+    "classnames": "^2.2.6",
     "prop-types": "^15.6.2",
     "react": "16.7.0",
     "react-dom": "16.7.0"
@@ -36,11 +37,12 @@
     "@babel/preset-env": "7.2.3",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.0.0",
+    "@pubean/eslint-config": "^0.3.0",
     "@pubean/stylelint-config": "0.7.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
-    "css-loader": "2.1.0",
     "chai": "^4.2.0",
+    "css-loader": "2.1.0",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
     "eslint": "5.11.0",
