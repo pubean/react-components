@@ -1,46 +1,42 @@
 import React from 'react';
-import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import { spy } from 'sinon';
 import Button from '../index';
 
-describe('<Button />', () => {
-  it('ensure default props are correct', () => {
-    const wrapper = shallow(<Button />);
-    const defaultClassName = 'pb-btn pb-btn-default pb-btn-medium pb-btn-square';
-    expect(wrapper.props().className).to.equal(defaultClassName);
-  });
+test('ensure default props are correct', () => {
+  const button = shallow(<Button />);
+  const defaultClassName = 'pb-btn pb-btn-default pb-btn-medium pb-btn-square';
+  expect(button.props().className).toEqual(defaultClassName);
+});
 
-  it('ensure prop size is correct', () => {
-    const wrapper = shallow(<Button size="large" />);
-    expect(wrapper.props().className).to.include('pb-btn-large');
-    wrapper.setProps({ size: 'mini' });
-    expect(wrapper.props().className).to.include('pb-btn-mini');
-  });
+test('ensure prop size is correct', () => {
+  const button = shallow(<Button size="large" />);
+  expect(button.props().className).toContain('pb-btn-large');
+  button.setProps({ size: 'mini' });
+  expect(button.props().className).toContain('pb-btn-mini');
+});
 
-  it('ensure prop block is correct', () => {
-    const wrapper = shallow(<Button />);
-    expect(wrapper.props().className).to.not.include('pb-btn-block');
-    wrapper.setProps({ block: true });
-    expect(wrapper.props().className).to.include('pb-btn-block');
-  });
+test('ensure prop block is correct', () => {
+  const button = shallow(<Button />);
+  expect(button.props().className).not.toContain('pb-btn-block');
+  button.setProps({ block: true });
+  expect(button.props().className).toContain('pb-btn-block');
+});
 
-  it('ensure Button can be a link', () => {
-    const wrapper = shallow(<Button href="https://pubean.com" />);
-    expect(wrapper.type()).to.equal('a');
-  });
+test('ensure Button can be a link', () => {
+  const button = shallow(<Button href="https://pubean.com" />);
+  expect(button.type()).toEqual('a');
+});
 
-  it('ensure loading state functions well', () => {
-    const wrapper = shallow(<Button loading />);
-    expect(wrapper.props().className).to.include('pb-btn-loading');
-    wrapper.setProps({ loadingText: 'changedLoadingText' });
-    expect(wrapper.children('span').text()).to.equal('changedLoadingText');
-  });
+test('ensure loading state functions well', () => {
+  const button = shallow(<Button loading />);
+  expect(button.props().className).toContain('pb-btn-loading');
+  button.setProps({ loadingText: 'changedLoadingText' });
+  expect(button.children('span').text()).toEqual('changedLoadingText');
+});
 
-  it('ensure onClick callback functions well', () => {
-    const onButtonClick = spy();
-    const wrapper = shallow(<Button onClick={onButtonClick} />);
-    wrapper.simulate('click');
-    expect(onButtonClick).to.have.property('callCount', 1);
-  });
+test('ensure onClick callback functions well', () => {
+  const onButtonClick = jest.fn();
+  const button = shallow(<Button onClick={onButtonClick} />);
+  button.simulate('click');
+  expect(onButtonClick.mock.calls.length).toBe(1);
 });
