@@ -61,9 +61,9 @@ export default class Button extends React.PureComponent {
     type: 'default',
     size: 'medium',
     shape: 'square',
-    block: false,
     disabled: false,
     loading: false,
+    block:  false,
     loadingText: '加载中...',
     href: '',
     target: null,
@@ -78,9 +78,9 @@ export default class Button extends React.PureComponent {
       [`pb-btn-${type}`]: true,
       [`pb-btn-${size}`]: true,
       [`pb-btn-${shape}`]: true,
-      [`pb-btn-${block}`]: block,
-      [`pb-btn-${disabled}`]: disabled,
-      [`pb-btn-${loading}`]: loading,
+      [`pb-btn-block`]: block,
+      [`pb-btn-disabled`]: disabled,
+      [`pb-btn-loading`]: loading,
     });
   };
 

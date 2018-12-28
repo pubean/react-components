@@ -7,7 +7,8 @@ import Button from '../index';
 describe('<Button />', () => {
   it('ensure default props are correct', () => {
     const wrapper = shallow(<Button />);
-    expect(wrapper.props().className).to.equal('pb-btn');
+    const defaultClassName = 'pb-btn pb-btn-default pb-btn-medium pb-btn-square';
+    expect(wrapper.props().className).to.equal(defaultClassName);
   });
 
   it('ensure prop size is correct', () => {
@@ -30,7 +31,7 @@ describe('<Button />', () => {
   });
 
   it('ensure loading state functions well', () => {
-    const wrapper = shallow(<Button loading={true} />);
+    const wrapper = shallow(<Button loading />);
     expect(wrapper.props().className).to.include('pb-btn-loading');
     wrapper.setProps({ loadingText: 'changedLoadingText' });
     expect(wrapper.children('span').text()).to.equal('changedLoadingText');
